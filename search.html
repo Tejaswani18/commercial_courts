@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Legal Cases</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('C:\\Users\\Lenovo\\Downloads\\search_image.jpg'); /* Replace with the actual image URL */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .search-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      text-align: center;
+    }
+
+    .search-container h1 {
+      font-size: 28px;
+      color: #b22222;
+      margin-bottom: 10px;
+    }
+
+    .search-container p {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .search-container label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .search-container input,
+    .search-container select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .search-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #daa520;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background-color: #b8860b;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <h1>Search Legal Cases</h1>
+    <a href="main_portal.html" class="back-button">&#x23EA;</a>
+    <p>Find insights and case law faster with AI Powered Search</p>
+    <form action="summary.html" method="get">
+      <label for="keyword">Enter Keyword</label>
+      <input type="text" id="keyword" name="keyword" placeholder="e.g., Breach of Contract" required>
+
+      <label for="jurisdiction">Jurisdiction</label>
+      <select id="jurisdiction" name="jurisdiction" required>
+        <option value="">Choose Jurisdiction</option>
+        <option value="US">United States</option>
+        <option value="UK">United Kingdom</option>
+        <option value="CA">Canada</option>
+        <option value="AU">Australia</option>
+      </select>
+
+      <label for="start-date">Select Date Range</label>
+      <input type="date" id="start-date" name="start-date" required>
+      <input type="date" id="end-date" name="end-date" required>
+
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</body>
+</html>
