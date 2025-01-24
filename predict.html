@@ -7,76 +7,80 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-image: url('C:\\Users\\Lenovo\\OneDrive\\Documents\\Major project\\img\\predict_image.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-repeat: no-repeat;
             margin: 0;
             padding: 0;
-            background: url('C:\\Users\\Lenovo\\Downloads\\predict_image.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-
-        .container {
-            width: 100%;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(0, 0, 0, 0.5);
+            height: 100vh;
+            color: #333;
         }
-
-        .card {
+        .container {
             background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
             width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-
-        .card h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        .card textarea {
-            width:90%;
-            height: 150px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        select, textarea {
+            width: 90%;
             padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
             font-size: 16px;
-            resize: none;
         }
-
-        .card button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #fbc02d;
+        button {
+            background-color: #ffcc00;
+            color: #333;
             border: none;
-            border-radius: 4px;
+            padding: 10px 15px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            font-size: 16px;
         }
-
-        .card button:hover {
-            background-color: #f9a825;
+        button:hover {
+            background-color: #e6b800;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="card">
-            <h1>Predict Judgment</h1>
-            <a href="main_portal.html" class="back-button">&#x23EA;</a>
-            <label for="case-summary">Enter Case Summary</label>
-            <textarea id="case-summary" placeholder="Provide a detailed summary of the Case..."></textarea>
-            <button onclick="location.href='judgment.html'">Predict</button>
-        </div>
+        <h2>Predict Judgment</h2>
+        <a href="main_portal.html" class="back-button">&#x23EA;</a>
+        <label for="case-keywords">Select Case Keywords</label>
+        <select id="case-keywords">
+            <option value="">-- Select Keywords --</option>
+            <option value="Breach of contract">Breach of Contract</option>
+            <option value="Unfair trade practices">Unfair trade practices</option>
+            <option value="Intellectual property rights">Intellectual property rights</option>
+            <option value="Land disputes">Land disputes</option>
+            <option value="Delivery of bad quality products">Delivery of bad quality products</option>
+            <option value="Invalid price">Invalid price</option>
+            <option value="Not filing obligations">Not filing obligations</option>
+            <option value="Insurance and reinsurance">Insurance and reinsurance</option>
+        </select>
+
+        <label for="case-summary">Enter Case Summary</label>
+        <textarea id="case-summary" rows="6" placeholder="Provide a detailed summary of the case..."></textarea>
+
+        <button onclick="location.href='judgment.html'">Predict</button>
     </div>
 
     <script>
         function predictJudgment() {
-            alert('Prediction functionality is not implemented yet.');
+            const keywords = document.getElementById('case-keywords').value;
+            const summary = document.getElementById('case-summary').value;
+            if (!keywords || !summary) {
+                alert('Please select keywords and fill in the case summary.');
+                return;
+            }
+            alert('Prediction functionality to be implemented!');
+            // Add logic for prediction here
         }
     </script>
 </body>
