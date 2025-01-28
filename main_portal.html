@@ -148,6 +148,84 @@
       color: white;
       font-size: 14px;
     }
+    .chatbox-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      display: none; /* Initially hidden */
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .chatbox-header {
+      background-color: #696969;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 16px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .chatbox-messages {
+      padding: 10px;
+      height: 300px;
+      overflow-y: auto;
+      border-bottom: 2px solid #ccc;
+      flex-grow: 1;
+      background-color: #f7f7f7;
+    }
+
+    .chatbox-input {
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+    }
+
+    .chatbox-input input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .chatbox-input button {
+      background-color: #696969;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .chatbox-input button:hover {
+      background-color: #555;
+    }
+
+    /* Chat Support Icon */
+    .chat-support-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #696969;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 24px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -181,10 +259,26 @@
     <h1 data-key="portalTitle">Case Judgment Portal</h1>
     <p data-key="portalSubtitle">Select an option</p>
     <button onclick="location.href='search.html'" data-key="searchButton">Search Previous Case Judgments</button>
-    <button onclick="location.href='predict.html'" data-key="predictButton">Predict Judgment</button>
+    <button onclick="location.href='upload.html'" data-key="uploadButton">Summarized Judgment</button>
     <a href="login.html" data-key="backToLogin">Back to Login</a>
   </div>
 
+  <!-- Chat Support Icon -->
+  <div class="chat-support-icon" onclick="toggleChatbox()">💬</div>
+
+  <!-- Chatbox Container -->
+  <div class="chatbox-container" id="chatbox">
+    <div class="chatbox-header">
+      Chat Support
+    </div>
+    <div class="chatbox-messages" id="chatMessages">
+      <p><strong>Chatbot:</strong> Hello! How can I assist you?</p>
+    </div>
+    <div class="chatbox-input">
+      <input type="text" id="userMessage" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
   <!-- Footer -->
   <footer>
     <span data-key="footerText">&copy; 2025 Case Judgment Portal. All rights reserved.</span>
@@ -219,6 +313,42 @@
         dropdown.style.display = 'none';
       }
     });
+    function toggleChatbox() {
+      const chatbox = document.getElementById('chatbox');
+      chatbox.style.display = chatbox.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    // Function to send user message and get chatbot response
+    function sendMessage() {
+      const userMessage = document.getElementById('userMessage').value;
+      if (userMessage.trim() === "") return;
+
+      // Append user's message to the chatbox
+      const chatMessages = document.getElementById('chatMessages');
+      chatMessages.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+
+      // Simple chatbot response logic (can be extended with AI or other logic)
+      const botResponse = getBotResponse(userMessage);
+      chatMessages.innerHTML += `<p><strong>Chatbot:</strong> ${botResponse}</p>`;
+
+      // Scroll to the bottom of the chat
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Clear the input field
+      document.getElementById('userMessage').value = "";
+    }
+
+    // Simple function to simulate chatbot responses
+    function getBotResponse(message) {
+      const lowerMessage = message.toLowerCase();
+      if (lowerMessage.includes("case")) {
+        return "I can help you with case judgments. Please specify your query.";
+      } else if (lowerMessage.includes("judgment")) {
+        return "What kind of judgment are you looking for?";
+      } else {
+        return "Sorry, I didn't understand that. Can you please rephrase?";
+      }
+    }
   </script>
 </body>
 </html>
