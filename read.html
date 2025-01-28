@@ -7,17 +7,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #c97878;
+            background-color: #d7d0d0;
             margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #ffffff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #131212;
         }
         .header {
             display: flex;
@@ -34,7 +27,6 @@
         .header h1 {
             font-size: 22px;
             margin: 0;
-            color: #333333;
         }
         .content {
             margin-top: 20px;
@@ -46,7 +38,6 @@
         }
         .content span {
             font-weight: bold;
-            color: #333333;
         }
         .read-more {
             color: #0066cc;
@@ -56,27 +47,22 @@
         .read-more:hover {
             text-decoration: underline;
         }
-        .case-summary, .judgment {
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="summary.html" class="back-button">&#x23EA;</a>
-            <h1>CASE DETAILS</h1>
+    <div class="header">
+        <a href="summary.html" class="back-button">&#x23EA;</a>
+        <h1>CASE DETAILS</h1>
+    </div>
+    <div class="content">
+        <p><span>Case Title :</span> Jone vs Jane</p>
+        <p><span>Jurisdiction :</span> High Court</p>
+        <p><span>Date of Judgment :</span> 23-11-2009</p>
+        <div class="case-summary">
+            <p><span>Case Summary :</span> Matrix Business Consulting, Inc. (Matrix) entered into a contract with Gregory Manufacturing Company (Gregory) to provide consulting services aimed at improving Gregory's manufacturing processes. Matrix alleged that Gregory breached the contract by failing to pay for services rendered. In response, Gregory contended that Matrix did not deliver the agreed-upon services satisfactorily, thereby justifying the non-payment.</p>
         </div>
-        <div class="content">
-            <p><span>Case Title :</span> Jone vs Jane</p>
-            <p><span>Jurisdiction :</span> High Court</p>
-            <p><span>Date of Judgment :</span> 23-11-2009</p>
-            <div class="case-summary">
-                <p><span>Case Summary :</span> Matrix Business Consulting, Inc. (Matrix) entered into a contract with Gregory Manufacturing Company (Gregory) to provide consulting services aimed at improving Gregory's manufacturing processes. Matrix alleged that Gregory breached the contract by failing to pay for services rendered. In response, Gregory contended that Matrix did not deliver the agreed-upon services satisfactorily, thereby justifying the non-payment.</p>
-            </div>
-            <div class="judgment">
-                <p><span>Judgment :</span> The court granted the motion in part, entering summary judgment dismissing the claim of written contract breach. However, the court found that genuine fact issues remained regarding the alleged oral... <a href="#" class="read-more">Read More</a></p>
-            </div>
+        <div class="judgment">
+            <p><span>Judgment :</span> The court granted the motion in part, entering summary judgment dismissing the claim of written contract breach. However, the court found that genuine fact issues remained regarding the alleged oral... <a href="#" class="read-more">Read More</a></p>
         </div>
     </div>
 </body>
