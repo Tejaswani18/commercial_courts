@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced File Upload</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('C:\\Users\\Lenovo\\OneDrive\\Documents\\Major project\\img\\upload.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      display: none;
+      background: #f2eee1;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 350px;
+      transition: transform 0.3s ease;
+    }
+    .container.active {
+      display: block;
+    }
+    .container h1 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .container label {
+      display: inline-block;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .container label:hover {
+      background-color: #4caf50;
+      color: #fff;
+    }
+    .container input[type="file"] {
+      display: none;
+    }
+    .container button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .container button:hover {
+      background-color: #45a049;
+    }
+    .file-name {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+      font-style: italic;
+    }
+    .display-container {
+      display: none;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      max-height: 400px;
+      overflow-y: auto;
+      text-align: left;
+    }
+    .display-container.active {
+      display: block;
+    }
+    .back-button {
+      background-color: #ff5722;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .back-button:hover {
+      background-color: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="container upload-container" id="upload-container">
+    <h1>Upload Your File</h1>
+    <form id="upload-form">
+      <label for="file-upload">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#333">
+          <path d="M24 32.25q-.4 0-.75-.15t-.6-.45l-7.2-7.2q-.5-.5-.487-1.188Q15 22.525 15.5 22q.525-.525 1.25-.525t1.25.525l4.25 4.25v-11.6q0-.725.487-1.225.488-.5 1.263-.5.775 0 1.262.5.488.5.488 1.225v11.6l4.25-4.25q.5-.5 1.225-.512.725-.013 1.225.487.525.525.525 1.25t-.525 1.25l-7.2 7.2q-.25.3-.6.45-.35.15-.75.15ZM12.75 41q-2.2 0-3.725-1.525T7.5 35.75V21.75q0-1.4.6-2.625T10 17.2l7.8-7.8q1.1-1.1 2.4-1.65 1.3-.55 2.8-.55h7.25q2.2 0 3.725 1.525T37.5 12.25v23.5q0 2.2-1.525 3.725T32.25 41Z" />
+        </svg>
+        <span>Select a file</span>
+      </label>
+      <input id="file-upload" type="file" name="file" accept="*/*" required onchange="showFileName(event)">
+      <div class="file-name" id="file-name"></div>
+      <button type="button" onclick="submitFile()">Submit</button>
+    </form>
+  </div>
+  <div class="container display-container" id="display-container">
+    <h1>File Content</h1>
+    <pre id="file-content"></pre>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+  <script>
+    function showFileName(event) {
+      const fileName = event.target.files[0]?.name || "";
+      document.getElementById("file-name").textContent = fileName;
+    }
+
+    function submitFile() {
+      const fileInput = document.getElementById("file-upload");
+      const file = fileInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById("file-content").textContent = e.target.result;
+          document.getElementById("upload-container").classList.remove("active");
+          document.getElementById("display-container").classList.add("active");
+        };
+        reader.readAsText(file);
+      }
+    }
+
+    function goBack() {
+      document.getElementById("display-container").classList.remove("active");
+      document.getElementById("upload-container").classList.add("active");
+    }
+
+    // Show upload container initially
+    document.getElementById("upload-container").classList.add("active");
+  </script>
+</body>
+</html>
