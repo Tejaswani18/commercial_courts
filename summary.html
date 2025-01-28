@@ -32,6 +32,12 @@
             padding: 15px;
             margin: 10px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-result:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .case-title {
@@ -48,10 +54,33 @@
             color: blue;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         .read-more:hover {
+            color: darkblue;
             text-decoration: underline;
+        }
+
+        .back-button {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px solid #333;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 36px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #333;
+            color: #fff;
         }
     </style>
 </head>
@@ -63,11 +92,11 @@
 
         <div class="search-result">
             <div class="case-title">Case Title 1 : ABC Ltd vs XYZ Corp</div>
-            <div class="summary">Summary: A landmark case discussing breach of contract in the context of... <a href="read.html"read-more">Read More</a></div>
+            <div class="summary">Summary: A landmark case discussing breach of contract in the context of... <a href="read.html" class="read-more">Read More</a></div>
         </div>
 
         <div class="search-result">
-            <div class="case-title">Case Title 2 : Joh vs Jane</div>
+            <div class="case-title">Case Title 2 : John vs Jane</div>
             <div class="summary">Summary: The case emphasizes the importance of contractual obligations... <a href="read.html" class="read-more">Read More</a></div>
         </div>
     </div>
