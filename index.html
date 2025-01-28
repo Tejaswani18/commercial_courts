@@ -1,59 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Driven Research Engine</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      background-image: url("C:\\Users\\Lenovo\\Downloads\\image1.jpg"); /* Replace with your image path */
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: yellow;
-    }
-    h1 {
-      font-size: 50px;
-      margin: 0;
-    }
-    p {
-      font-size: 20px;
-      margin: 10px 0 20px;
-      color: lightgreen;
-    }
-    button {
-      background-color: #fff;
-      border: none;
-      color: #800000;
-      padding: 15px 30px;
-      text-align: center;
-      text-decoration: none;
-      font-size: 16px;
-      margin-top: 20px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #f5f5f5;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Driven Research Engine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .main-title {
+            font-size: 4.5rem;
+            font-family: 'Times New Roman', serif;
+            color: #2d1810;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            font-family: 'Georgia', serif;
+            color: #8B4513;
+            margin-bottom: 3rem;
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.5rem;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            background-color: #8B4513;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background-color: #6b340e;
+        }
+
+        @media (max-width: 768px) {
+            .content-overlay {
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+            }
+
+            .main-title {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>AI Driven Research Engine</h1>
-    <p>Empowering Commercial Courts with Advanced AI Insights</p>
-    <!-- Link to the login page -->
-    <button onclick="location.href='login.html';">Get Started</button>
-  </div>
+    <section class="hero-section">
+        <img src="C:\\Users\\Lenovo\\OneDrive\\Documents\\Major project\\img\\index2.jpg" alt="Legal Gavel" class="hero-image">
+        <div class="content-overlay">
+            <h1 class="main-title">AI Driven Research Engine</h1>
+            <p class="subtitle">Empowering Commercial Courts with Advanced AI Insights</p>
+            <a href="login.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
 </body>
 </html>
